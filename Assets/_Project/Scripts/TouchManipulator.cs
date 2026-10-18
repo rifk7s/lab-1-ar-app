@@ -61,7 +61,7 @@ public class TouchManipulator : MonoBehaviour
 
         if (count == 1)
         {
-            Rotate(TouchDelta(0).x);
+            Rotate(TouchDelta(0));
         }
         else
         {
@@ -82,10 +82,12 @@ public class TouchManipulator : MonoBehaviour
         transform.localScale = initialScale;
     }
 
-    private void Rotate(float deltaX)
+    private void Rotate(Vector2 delta)
     {
-        // Spin around the target's "up" axis, which is the normal of the printed image.
-        transform.Rotate(0f, -deltaX * rotateSpeed, 0f, Space.Self);
+        // Horizontal drag: spin around the target's "up" axis, which is the normal of the printed image.
+        transform.Rotate(0f, -delta.x * rotateSpeed, 0f, Space.Self);
+        // Vertical drag: tilt around the horizontal axis, so the model can be turned toward the viewer.
+        transform.Rotate(delta.y * rotateSpeed, 0f, 0f, Space.World);
     }
 
     private void ApplyScale(float factor)
@@ -108,7 +110,7 @@ public class TouchManipulator : MonoBehaviour
         }
 
         if (MouseHeld() && !gestureStartedOnUI)
-            Rotate(position.x - lastMousePosition.x);
+            Rotate(position - lastMousePosition);
 
         lastMousePosition = position;
 
