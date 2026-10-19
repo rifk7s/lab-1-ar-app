@@ -220,7 +220,7 @@ An IPA signed by its author wouldn't work on other phones either, because its pr
 <tbody>
 <tr><td><b>Unity</b></td><td>6000.6.5f1 (Unity 6). The project uses <b>URP</b>.</td></tr>
 <tr><td><b>Vuforia Engine</b></td><td>11.4.4 (the <code>.tgz</code> package, see step 3)</td></tr>
-<tr><td><b>Git LFS</b></td><td>Required. Models, target images and the font are stored with LFS.</td></tr>
+<tr><td><b>Git LFS</b></td><td>Required. Models, target images and the font are stored with LFS. <a href="#1-install-git-lfs">How to install</a>.</td></tr>
 <tr><td><b>Vuforia account</b></td><td>Free. You need it to get a license key (Basic plan).</td></tr>
 <tr><td><b>Android Build Support</b></td><td>Optional, for Android builds (OpenJDK and Android SDK &amp; NDK modules)</td></tr>
 <tr><td><b>Xcode</b></td><td>Optional, for iOS builds (macOS only)</td></tr>
@@ -232,14 +232,43 @@ An IPA signed by its author wouldn't work on other phones either, because its pr
 
 ### Steps
 
-```bash
-# 1. Install Git LFS (once)
-git lfs install
+<a id="1-install-git-lfs"></a>
 
-# 2. Clone the repo
+**1. Install Git LFS (once per computer).** Git LFS is a separate program from Git, so having Git is not enough. Download it from [git-lfs.com](https://git-lfs.com/), or use your system's package manager:
+
+<table width="100%">
+<thead>
+<tr>
+<th>System</th>
+<th>How to install</th>
+</tr>
+</thead>
+<tbody>
+<tr><td><b>Windows</b></td><td><a href="https://git-scm.com/download/win">Git for Windows</a> already includes Git LFS. Otherwise download the installer from <a href="https://git-lfs.com/">git-lfs.com</a>, or run <code>winget install GitHub.GitLFS</code> (or <code>choco install git-lfs</code> with Chocolatey).</td></tr>
+<tr><td><b>macOS</b></td><td><code>brew install git-lfs</code> with <a href="https://brew.sh/">Homebrew</a>, or download the installer from <a href="https://git-lfs.com/">git-lfs.com</a>.</td></tr>
+<tr><td><b>Linux</b></td><td>Debian / Ubuntu: <code>sudo apt install git-lfs</code><br>Fedora: <code>sudo dnf install git-lfs</code><br>Arch: <code>sudo pacman -S git-lfs</code><br>Other distros: see the <a href="https://github.com/git-lfs/git-lfs/blob/main/INSTALLING.md">official install guide</a>.</td></tr>
+</tbody>
+</table>
+
+Then check that it works and set it up. `git lfs install` only needs to run once per computer:
+
+```bash
+git lfs version     # should print something like: git-lfs/3.x.x
+git lfs install     # one-time setup (prints "Git LFS initialized.")
+```
+
+> [!TIP]
+> If `git lfs` says "command not found" right after installing, close and reopen your terminal so it picks up the new PATH.
+
+**2. Clone the repo.**
+
+```bash
 git clone https://github.com/rifk7s/lab-1-ar-app.git
 cd lab-1-ar-app
 ```
+
+> [!NOTE]
+> **Already cloned without Git LFS?** Install it as in step 1, then run `git lfs pull` inside the repo to replace the text pointers with the real files.
 
 **3. Get the Vuforia Engine package.** From the [Vuforia Developer Portal](https://developer.vuforia.com/downloads/sdk), download the **Vuforia Engine package for Unity, version 11.4.4**, and put `com.ptc.vuforia.engine-11.4.4.tgz` inside the `Packages/` folder. The file is not in the repo on purpose (it is proprietary and large).
 
