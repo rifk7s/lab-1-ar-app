@@ -351,11 +351,21 @@ find ipa/Payload -type f -exec sh -c 'file "$1" | grep -q Mach-O && codesign --r
 (cd ipa && zip -qry ../VARProductViewer-unsigned.ipa Payload)
 ```
 
-Then check that none of your account data is left. This command should print nothing:
+Then check that none of your account data is left. Replace `your-apple-id-email` with your own Apple ID email. Every command below should print nothing, except the last one, which should only print `not signed` lines:
 
 ```bash
 unzip -q VARProductViewer-unsigned.ipa -d check
+
+# No signing leftovers
+find check -name embedded.mobileprovision -o -name _CodeSignature
+
+# No Apple ID email, certificate names or entitlements
 grep -rl -a "your-apple-id-email" check
+grep -rl -a -E "Apple Development|Apple Distribution|iPhone Developer" check
+grep -rl -a -E "TeamIdentifier|application-identifier|get-task-allow" check
+
+# Every Mach-O binary should say "not signed"
+find check -type f -exec sh -c 'file "$1" | grep -q Mach-O && codesign -d "$1" 2>&1' _ {} \;
 ```
 
 Delete the `check` folder when you are done. The `Builds/` folder is in `.gitignore`, so `.apk` and `.ipa` files are never committed.
