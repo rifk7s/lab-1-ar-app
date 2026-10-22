@@ -2,75 +2,55 @@
 
 <h1>VAR Product Viewer</h1>
 
-<br/>
-
 [![Unity][badge-unity]](https://unity.com/)
 [![Vuforia][badge-vuforia]](https://developer.vuforia.com/)
 [![Android][badge-android]](#android)
 [![iOS][badge-ios]](#ios-sideload)
 [![Git LFS][badge-lfs]](https://git-lfs.com/)
 
-<br/>
-
 An **Augmented Reality** product viewer built on an **image target**. Point your phone at the product card and a 3D model appears standing on it. Rotate it in any direction, zoom in and out, and switch models with the buttons.
 
 </div>
 
 > [!NOTE]
-> Built for **Lab 5, Your First AR App: an Image-Target Product Viewer** (Unity + Vuforia Engine). Tracking uses **natural feature tracking**, so the card needs no special marker, just a picture with enough detail.
+> Built for **Lab 5, Your First AR App: an Image-Target Product Viewer** (Unity + Vuforia Engine).
 >
-> **Only want to try the app?** Jump to [Install on your phone](#install-on-your-phone). You don't need Unity for that.
+> **Only want to try the app?** Jump to [Install on Your Phone](#install-on-your-phone). You don't need Unity for that.
 
----
+<details>
+<summary><b>Features</b></summary>
 
-## Features
+Tracking uses **natural feature tracking**, so the card needs no special marker, just a picture with enough detail.
 
-<table width="100%">
-<thead>
-<tr>
-<th>Feature</th>
-<th>How it works</th>
-</tr>
-</thead>
-<tbody>
-<tr><td><b>Image target tracking</b></td><td>Vuforia recognizes the card and computes its position and rotation (6DoF), then anchors the model on top of it.</td></tr>
-<tr><td><b>Three 3D models</b></td><td>Beaver, bee and bunny. Only one is shown at a time.</td></tr>
-<tr><td><b>Rotate in any direction</b></td><td>Drag one finger: horizontal drags spin the model like a turntable, vertical drags tilt it.</td></tr>
-<tr><td><b>Zoom</b></td><td>Pinch with two fingers. Scale is clamped between 0.5x and 3x of the starting size.</td></tr>
-<tr><td><b>UI buttons</b></td><td><code>&lt; Prev</code>, <code>Reset</code> and <code>Next &gt;</code>, plus a label with the model name and its position in the list.</td></tr>
-<tr><td><b>UI follows the target</b></td><td>The hint "Point your camera at the product card" shows while the card is out of view. The buttons only appear while the card is detected.</td></tr>
-</tbody>
-</table>
+| Feature | How it works |
+| --- | --- |
+| **Image target tracking** | Vuforia recognizes the card and computes its position and rotation (6DoF), then anchors the model on top of it. |
+| **Three 3D models** | Beaver, bee and bunny. Only one is shown at a time. |
+| **Rotate in any direction** | Drag one finger: horizontal drags spin the model like a turntable, vertical drags tilt it. |
+| **Zoom** | Pinch with two fingers. Scale is clamped between 0.5x and 3x of the starting size. |
+| **UI buttons** | `< Prev`, `Reset` and `Next >`, plus a label with the model name and its position in the list. |
+| **UI follows the target** | The hint "Point your camera at the product card" shows while the card is out of view. The buttons only appear while the card is detected. |
 
-### Controls
+</details>
 
-<table width="100%">
-<thead>
-<tr>
-<th>Action</th>
-<th>On a phone</th>
-<th>In the Unity Editor (webcam)</th>
-</tr>
-</thead>
-<tbody>
-<tr><td><b>Rotate</b></td><td>Drag one finger</td><td>Left-click and drag</td></tr>
-<tr><td><b>Zoom</b></td><td>Pinch with two fingers</td><td>Mouse scroll wheel</td></tr>
-<tr><td><b>Switch model</b></td><td>Tap <code>&lt; Prev</code> or <code>Next &gt;</code></td><td>Click the button</td></tr>
-<tr><td><b>Restore the view</b></td><td>Tap <code>Reset</code></td><td>Click <code>Reset</code></td></tr>
-</tbody>
-</table>
+## Controls
+
+| Action | On a phone | In the Unity Editor (webcam) |
+| --- | --- | --- |
+| **Rotate** | Drag one finger | Left-click and drag |
+| **Zoom** | Pinch with two fingers | Mouse scroll wheel |
+| **Switch model** | Tap `< Prev` or `Next >` | Click the button |
+| **Restore the view** | Tap `Reset` | Click `Reset` |
 
 > [!TIP]
 > Drags that start **on top of a button** are ignored on purpose, so tapping `Next` doesn't also spin the model.
-
----
 
 ## Target Card
 
 The target database (`lab_db`) contains two images: `charliekirks` and `spongebobs`. The scene tracks **`charliekirks`**.
 
 <div align="center">
-<img src="Assets/Editor/Vuforia/ImageTargetTextures/lab_db/charliekirks_scaled.jpg" alt="The charliekirks target card" width="280">
+<img src="Assets/Editor/Vuforia/ImageTargetTextures/lab_db/charliekirks_scaled.jpg" alt="The charliekirks target card" width="220">
 </div>
 
 Show the image above on a laptop or tablet screen, or print it, and point the camera at it.
@@ -89,31 +69,20 @@ Show the image above on a laptop or tablet screen, or print it, and point the ca
 
 </details>
 
----
-
 ## Install on Your Phone
 
 Grab the latest build with the direct links below, or browse every version on the **[Releases](https://github.com/rifk7s/lab-1-ar-app/releases)** page.
 
-<table width="100%">
-<thead>
-<tr>
-<th>Platform</th>
-<th>File</th>
-<th>Requirements</th>
-</tr>
-</thead>
-<tbody>
-<tr><td><b>Android</b></td><td><a href="https://github.com/rifk7s/lab-1-ar-app/releases/latest/download/ProductViewer.apk"><code>ProductViewer.apk</code></a></td><td>Android 10 (API 29) or newer, ARM64</td></tr>
-<tr><td><b>iOS</b></td><td><a href="https://github.com/rifk7s/lab-1-ar-app/releases/latest/download/VARProductViewer-unsigned.ipa"><code>VARProductViewer-unsigned.ipa</code></a></td><td>iOS 15.0 or newer, <b>must be sideloaded</b>, Developer Mode turned on</td></tr>
-</tbody>
-</table>
+| Platform | File | Requirements |
+| --- | --- | --- |
+| **Android** | [`ProductViewer.apk`](https://github.com/rifk7s/lab-1-ar-app/releases/latest/download/ProductViewer.apk) | Android 10 (API 29) or newer, ARM64 |
+| **iOS** | [`VARProductViewer-unsigned.ipa`](https://github.com/rifk7s/lab-1-ar-app/releases/latest/download/VARProductViewer-unsigned.ipa) | iOS 15.0 or newer, **must be sideloaded**, Developer Mode turned on |
 
 <a id="android"></a>
 
 ### Android
 
-1. Download [`ProductViewer.apk`](https://github.com/rifk7s/lab-1-ar-app/releases/latest/download/ProductViewer.apk) to your phone (or pick a version on the [Releases](https://github.com/rifk7s/lab-1-ar-app/releases) page).
+1. Download the APK from the table above to your phone.
 2. Open the file. If asked, allow **Install unknown apps** for the browser or file manager you are using.
 3. Install it, open **VAR Product Viewer** and allow camera access.
 4. Point the camera at the target card.
@@ -125,10 +94,14 @@ Grab the latest build with the direct links below, or browse every version on th
 
 ### iOS (Sideload)
 
+iOS builds must be sideloaded with your own Apple ID. Open the guide below.
+
+<details>
+<summary><b>iOS sideload guide</b></summary>
+
 The IPA in Releases is **intentionally unsigned**. Apple doesn't allow installing apps from outside the App Store directly, so you need a sideloading tool that **re-signs the IPA with your own Apple ID**. A free Apple ID is enough.
 
-> [!WARNING]
-> With a free Apple ID, a sideloaded app is only valid for **7 days**. After that it won't open until you refresh or reinstall it. A free Apple ID is also limited to about **3 active sideloaded apps** at a time.
+> **Warning:** With a free Apple ID, a sideloaded app is only valid for **7 days**. After that it won't open until you refresh or reinstall it. A free Apple ID is also limited to about **3 active sideloaded apps** at a time.
 
 **Turn on Developer Mode first** (required on iOS 16 and later):
 
@@ -136,8 +109,7 @@ The IPA in Releases is **intentionally unsigned**. Apple doesn't allow installin
 2. Switch it on. The phone will restart.
 3. After it restarts, tap **Turn On** and enter your passcode.
 
-> [!TIP]
-> If the Developer Mode option isn't there, it usually shows up after the phone has run an app signed for development, for example after your first sideload.
+> **Tip:** If the Developer Mode option isn't there, it usually shows up after the phone has run an app signed for development, for example after your first sideload.
 
 <table width="100%">
 <tr>
@@ -185,189 +157,25 @@ An IPA signed by its author wouldn't work on other phones either, because its pr
 <details>
 <summary>Common sideloading problems</summary>
 
-<table width="100%">
-<thead>
-<tr>
-<th>Problem</th>
-<th>Cause and fix</th>
-</tr>
-</thead>
-<tbody>
-<tr><td><b>Untrusted Developer</b> when opening the app</td><td>Go to <b>Settings → General → VPN &amp; Device Management</b>, pick your Apple ID and tap <b>Trust</b>.</td></tr>
-<tr><td><b>Developer Mode</b> option is missing</td><td>Make sure you are on iOS 16 or newer. The option often only appears once a development app is installed.</td></tr>
-<tr><td>App suddenly won't open</td><td>The 7 days are up. Refresh it in AltStore, or reinstall with Sideloadly.</td></tr>
-<tr><td>Install fails because of the app limit</td><td>A free Apple ID is limited to about 3 active apps. Remove or deactivate another sideloaded app.</td></tr>
-<tr><td>Black camera screen</td><td>Allow the camera under <b>Settings → VAR Product Viewer → Camera</b>.</td></tr>
-<tr><td>Model shows up but you can't see its face</td><td>Lay the card flat on a table and view it from the bottom edge of the picture, at roughly 45 degrees.</td></tr>
-</tbody>
-</table>
-
-</details>
-
----
-
-## Run from Source
-
-### Requirements
-
-<table width="100%">
-<thead>
-<tr>
-<th>Requirement</th>
-<th>Version</th>
-</tr>
-</thead>
-<tbody>
-<tr><td><b>Unity</b></td><td>6000.6.5f1 (Unity 6). The project uses <b>URP</b>.</td></tr>
-<tr><td><b>Vuforia Engine</b></td><td>11.4.4 (the <code>.tgz</code> package, see step 3)</td></tr>
-<tr><td><b>Git LFS</b></td><td>Required. Models, target images and the font are stored with LFS. <a href="#1-install-git-lfs">How to install</a>.</td></tr>
-<tr><td><b>Vuforia account</b></td><td>Free. You need it to get a license key (Basic plan).</td></tr>
-<tr><td><b>Android Build Support</b></td><td>Optional, for Android builds (OpenJDK and Android SDK &amp; NDK modules)</td></tr>
-<tr><td><b>Xcode</b></td><td>Optional, for iOS builds (macOS only)</td></tr>
-</tbody>
-</table>
-
-> [!IMPORTANT]
-> **Install Git LFS before you `git clone`.** Without it, the `.fbx`, `.png` and `.jpg` files are just small text pointers and the Unity project won't open correctly.
-
-### Steps
-
-<a id="1-install-git-lfs"></a>
-
-**1. Install Git LFS (once per computer).** Git LFS is a separate program from Git, so having Git is not enough. Download it from [git-lfs.com](https://git-lfs.com/), or use your system's package manager:
-
-<table width="100%">
-<thead>
-<tr>
-<th>System</th>
-<th>How to install</th>
-</tr>
-</thead>
-<tbody>
-<tr><td><b>Windows</b></td><td><a href="https://git-scm.com/download/win">Git for Windows</a> already includes Git LFS. Otherwise download the installer from <a href="https://git-lfs.com/">git-lfs.com</a>, or run <code>winget install GitHub.GitLFS</code> (or <code>choco install git-lfs</code> with Chocolatey).</td></tr>
-<tr><td><b>macOS</b></td><td><code>brew install git-lfs</code> with <a href="https://brew.sh/">Homebrew</a>, or download the installer from <a href="https://git-lfs.com/">git-lfs.com</a>.</td></tr>
-<tr><td><b>Linux</b></td><td>Debian / Ubuntu: <code>sudo apt install git-lfs</code><br>Fedora: <code>sudo dnf install git-lfs</code><br>Arch: <code>sudo pacman -S git-lfs</code><br>Other distros: see the <a href="https://github.com/git-lfs/git-lfs/blob/main/INSTALLING.md">official install guide</a>.</td></tr>
-</tbody>
-</table>
-
-Then check that it works and set it up. `git lfs install` only needs to run once per computer:
-
-```bash
-git lfs version     # should print something like: git-lfs/3.x.x
-git lfs install     # one-time setup (prints "Git LFS initialized.")
-```
-
-> [!TIP]
-> If `git lfs` says "command not found" right after installing, close and reopen your terminal so it picks up the new PATH.
-
-**2. Clone the repo.**
-
-```bash
-git clone https://github.com/rifk7s/lab-1-ar-app.git
-cd lab-1-ar-app
-```
-
-> [!NOTE]
-> **Already cloned without Git LFS?** Install it as in step 1, then run `git lfs pull` inside the repo to replace the text pointers with the real files.
-
-**3. Get the Vuforia Engine package.** From the [Vuforia Developer Portal](https://developer.vuforia.com/downloads/sdk), download the **Vuforia Engine package for Unity, version 11.4.4**, and put `com.ptc.vuforia.engine-11.4.4.tgz` inside the `Packages/` folder. The file is not in the repo on purpose (it is proprietary and large).
-
-**4. Open the project in Unity Hub** with version **6000.6.5f1** and wait for the import to finish.
-
-**5. Add your license key.** Select `ARCamera` in the Hierarchy, click **Open Vuforia Engine configuration** and paste your key into **App License Key**. You can generate a free key under **Plan & Licenses** in the Vuforia Developer Portal.
-
-**6. Test with a webcam.** In the Vuforia configuration, set **Play Mode type** to **Webcam**, open `Assets/Scenes/SampleScene.unity`, press **Play** and point the card at your webcam.
-
-> [!CAUTION]
-> **Never commit your license key.** `Assets/Resources/VuforiaConfiguration.asset` contains your key and is already in `.gitignore`. The Vuforia `.tgz` package is ignored too.
-
-<details>
-<summary>Why aren't the Vuforia files in the repo?</summary>
-
-- `VuforiaConfiguration.asset` holds a personal **license key**, so it must not go into a public repo. Unity creates it automatically in `Assets/Resources/`, and you only need to fill in your own key.
-- The `com.ptc.vuforia.engine-11.4.4.tgz` package is about 130 MB and is proprietary SDK software from PTC. It is over GitHub's 100 MB per-file limit, and it is safer to download it straight from the source.
-- `Packages/manifest.json` references it as `file:com.ptc.vuforia.engine-11.4.4.tgz`, so Unity can only resolve the package once that file is in `Packages/`.
-
-</details>
-
----
-
-## Build It Yourself
-
-<table width="100%">
-<tr>
-<td width="50%" valign="top">
-
-### Android
-
-1. **File → Build Profiles**, pick **Android**, then **Switch Platform**.
-2. Add the scene with **Add Open Scenes**.
-3. Check the Player settings (already set in the repo):
-
-| Setting | Value |
+| Problem | Cause and fix |
 | --- | --- |
-| Product Name | `VAR Product Viewer` |
-| Package name | `com.rifky.productviewer` |
-| Minimum API Level | Android 10 (API 29) |
-| Scripting Backend | IL2CPP |
-| Target Architectures | ARM64 |
-| Orientation | Portrait |
-
-4. Turn on **USB debugging** on the phone, connect it, then **Build And Run**.
-
-</td>
-<td width="50%" valign="top">
-
-### iOS
-
-1. **File → Build Profiles**, pick **iOS**, then **Switch Platform** and **Build** into `Builds/iOS`.
-2. Open `Unity-iPhone.xcodeproj` in Xcode.
-3. Under **Signing & Capabilities**, pick a **Team** and keep the Bundle Identifier `com.rifky.productviewer` (or change it to your own).
-4. Pick your iPhone as the destination, then **Run**.
-5. Deployment target is iOS 15.0. The camera usage text is already set: "Camera is used for AR Tracking".
-
-</td>
-</tr>
-</table>
-
-<details>
-<summary>Make an unsigned IPA from the Xcode build</summary>
-
-Once the app builds, take `VARProductViewer.app` from `DerivedData` (the `Build/Products/ReleaseForRunning-iphoneos/` folder) and run the following from the folder that contains it.
-
-```bash
-# 1. Create the Payload folder and copy the app into it
-mkdir -p ipa/Payload
-cp -R VARProductViewer.app ipa/Payload/
-
-# 2. Remove the provisioning profile and every _CodeSignature folder
-rm -f ipa/Payload/VARProductViewer.app/embedded.mobileprovision
-find ipa/Payload -name _CodeSignature -type d -prune -exec rm -rf {} +
-
-# 3. Strip the signature from every Mach-O binary
-find ipa/Payload -type f -exec sh -c 'file "$1" | grep -q Mach-O && codesign --remove-signature "$1"' _ {} \;
-
-# 4. Zip it into an IPA
-(cd ipa && zip -qry ../VARProductViewer-unsigned.ipa Payload)
-```
-
-Then check that none of your account data is left. This command should print nothing:
-
-```bash
-unzip -q VARProductViewer-unsigned.ipa -d check
-grep -rl -a "your-apple-id-email" check
-```
-
-Delete the `check` folder when you are done. The `Builds/` folder is in `.gitignore`, so `.apk` and `.ipa` files are never committed.
+| **Untrusted Developer** when opening the app | Go to **Settings → General → VPN & Device Management**, pick your Apple ID and tap **Trust**. |
+| **Developer Mode** option is missing | Make sure you are on iOS 16 or newer. The option often only appears once a development app is installed. |
+| App suddenly won't open | The 7 days are up. Refresh it in AltStore, or reinstall with Sideloadly. |
+| Install fails because of the app limit | A free Apple ID is limited to about 3 active apps. Remove or deactivate another sideloaded app. |
+| Black camera screen | Allow the camera under **Settings → VAR Product Viewer → Camera**. |
+| Model shows up but you can't see its face | Lay the card flat on a table and view it from the bottom edge of the picture, at roughly 45 degrees. |
 
 </details>
 
----
+</details>
 
-## How It Works
+## For Developers
+
+Want to build from source? See [docs/BUILD.md](docs/BUILD.md) (install Git LFS before you clone).
 
 <details>
-<summary>Tracking pipeline and scene hierarchy</summary>
+<summary>How it works</summary>
 
 **Four Vuforia stages:**
 
@@ -399,59 +207,12 @@ SampleScene
 
 </details>
 
-<details>
-<summary>Project structure</summary>
-
-```
-lab-1-ar-app/
-├── Assets/
-│   ├── _Project/
-│   │   ├── Models/                    # animal-beaver, animal-bee, animal-bunny (.fbx) + colormap.png
-│   │   └── Scripts/
-│   │       ├── ModelSwitcher.cs       # Show one model, Next / Previous, name label
-│   │       └── TouchManipulator.cs    # Rotate, tilt, zoom, ResetView
-│   ├── Scenes/
-│   │   └── SampleScene.unity          # ARCamera, ProductCardTarget, ModelRoot, Canvas
-│   ├── Editor/
-│   │   ├── Migration/                 # Vuforia package migration script
-│   │   └── Vuforia/ImageTargetTextures/lab_db/   # Target images (charliekirks, spongebobs)
-│   ├── StreamingAssets/Vuforia/       # lab_db.dat + lab_db.xml (target database)
-│   ├── Resources/                     # VuforiaConfiguration.asset (ignored, holds the license key)
-│   ├── Settings/                      # URP assets and build profiles
-│   └── TextMesh Pro/                  # TMP fonts and shaders
-├── Packages/
-│   └── manifest.json                  # Package dependencies (put the Vuforia tgz here by hand)
-├── ProjectSettings/                   # Android and iOS Player settings
-├── .gitattributes                     # Git LFS rules
-└── .gitignore                         # Library, Builds, license key, Vuforia package, etc.
-```
-
-</details>
-
-<details>
-<summary>Notes on Git LFS in this repo</summary>
-
-These binary files are stored with Git LFS (see `.gitattributes`):
-
-- The `.fbx` 3D models and the `colormap.png` texture
-- The `.jpg` target images
-- The `LiberationSans.ttf` font and the template's bundled icon
-
-On GitHub, LFS files look normal and carry a **Stored with Git LFS** label. To check on your own machine, run `git lfs ls-files --size`.
-
-The `com.akryst.unity-discord-rpc` package in `Packages/manifest.json` is a personal Discord Rich Presence plugin and the app doesn't need it. It is safe to remove from `manifest.json` if you don't use it.
-
-</details>
-
----
-
 ## Credits
 
 The 3D models (`animal-beaver`, `animal-bee`, `animal-bunny`) and the `colormap.png` texture come from the **[Cube Pets](https://kenney.nl/assets/cube-pets)** pack by [Kenney](https://kenney.nl/), released under **[CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/)** (public domain). Attribution is not required, but it is appreciated.
 
----
-
-## References
+<details>
+<summary>References</summary>
 
 - [Vuforia Developer Library: Getting Started with Vuforia Engine in Unity](https://developer.vuforia.com/library/getting-started/getting-started-vuforia-engine-unity)
 - [Vuforia Target Manager](https://developer.vuforia.com/library/vuforia-engine/getting-started/engine-developer-portal/vuforia-target-manager/)
@@ -459,6 +220,8 @@ The 3D models (`animal-beaver`, `animal-bee`, `animal-bunny`) and the `colormap.
 - [Sideloadly](https://sideloadly.io/)
 - [Expo: iOS Developer Mode](https://docs.expo.dev/guides/ios-developer-mode/)
 - [Git LFS](https://git-lfs.com/)
+
+</details>
 
 <!-- Badge images (kept here so the top of the file stays readable) -->
 
